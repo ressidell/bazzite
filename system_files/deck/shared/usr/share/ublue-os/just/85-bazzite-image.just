@@ -190,6 +190,7 @@ _hhd-dev:
     source /usr/lib/ujust/ujust.sh
     echo "Installing ${b}Handheld Daemon${n} locally until next reboot."
     curl -L https://raw.githubusercontent.com/hhd-dev/hhd/master/local_hhd.sh | bash
+
 _toggle_wayland:
     #!/usr/bin/bash
     source /etc/default/desktop-wayland
@@ -198,6 +199,7 @@ _toggle_wayland:
     else
       sudo sed -i 's/false/true/g' /etc/default/desktop-wayland
     fi
+
 _toggle-autologin:
     #!/usr/bin/bash
     DESKTOP_AUTOLOGIN="/etc/bazzite/desktop_autologin"
