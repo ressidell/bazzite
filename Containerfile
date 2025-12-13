@@ -284,6 +284,13 @@ RUN --mount=type=cache,dst=/var/cache \
         rocm-clinfo \
         waydroid \
         cage \
+        dconf-editor \
+        partclone \
+        plasma-workspace-x11 \
+        python3-uinput \
+        solaar \
+        wev \
+        java-21-openjdk.x86_64 \
         wlr-randr && \
     systemctl mask iscsi && \
     mkdir -p /usr/lib/extest/ && \
