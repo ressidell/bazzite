@@ -20,8 +20,16 @@ fi
 if [[ ! -f ${DESKTOP_AUTOLOGIN} ]]; then
   sed -i 's/.*Session=.*/Session=gamescope-session.desktop/g' ${SDDM_CONF}
 elif [[ ${BASE_IMAGE_NAME} =~ "kinoite" ]]; then
-  sed -i 's/.*Session=.*/Session=plasma.desktop/g' ${SDDM_CONF}
+  if ${DESKTOP_WAYLAND}; then
+    sed -i 's/.*Session=.*/Session=plasma.desktop/g' ${SDDM_CONF}
+  else
+    sed -i 's/.*Session=.*/Session=plasmax11.desktop/g' ${SDDM_CONF}
+  fi
 elif [[ ${BASE_IMAGE_NAME} =~ "silverblue" ]]; then
-  sed -i 's/.*Session=.*/Session=gnome-wayland.desktop/g' ${SDDM_CONF}
+  if ${DESKTOP_WAYLAND}; then
+    sed -i 's/.*Session=.*/Session=gnome-wayland.desktop/g' ${SDDM_CONF}
+  else
+    sed -i 's/.*Session=.*/Session=gnome-xorg.desktop/g' ${SDDM_CONF}
+  fi
 fi
 sed -i 's/.*User=.*/User='${USER}'/g' ${SDDM_CONF}
