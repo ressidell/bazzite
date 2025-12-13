@@ -197,8 +197,6 @@ RUN --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \
     dnf5 -y remove \
         ublue-os-update-services \
-        firefox \
-        firefox-langpacks \
         toolbox \
         htop && \
     /ctx/cleanup
@@ -290,6 +288,7 @@ RUN --mount=type=cache,dst=/var/cache \
         python3-uinput \
         solaar \
         wev \
+        keepassxc \
         java-21-openjdk.x86_64 \
         wlr-randr && \
     systemctl mask iscsi && \
